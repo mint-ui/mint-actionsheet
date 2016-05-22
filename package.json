@@ -1,0 +1,26 @@
+{
+  "name": "vue-actionsheet",
+  "version": "0.0.0",
+  "description": "An action sheet component for vue.js",
+  "private": false,
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "cooking watch -c cooking.conf.js,cooking.example.conf.js",
+    "build": "cooking build",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElemeFE/vue-actionsheet/vue-actionsheet.git"
+  },
+  "homepage": "https://github.com/ElemeFE/vue-actionsheet/vue-actionsheet#readme",
+  "bugs": {
+    "url": "https://github.com/ElemeFE/vue-actionsheet/vue-actionsheet/issues"
+  },
+  "author": "yi.shyang@ele.me",
+  "license": "mit",
+  "dependencies": {
+    "vue-popup": "^0.1.4"
+  },
+  "devDependencies": {}
+}
