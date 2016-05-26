@@ -1,6 +1,6 @@
 {
-  "name": "vue-actionsheet",
-  "version": "0.0.0",
+  "name": "mint-actionsheet",
+  "version": "0.0.1",
   "description": "An action sheet component for vue.js",
   "private": false,
   "main": "lib/index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElemeFE/vue-actionsheet/vue-actionsheet.git"
+    "url": "git+https://github.com/mint-ui/mint-actionsheet.git"
   },
-  "homepage": "https://github.com/ElemeFE/vue-actionsheet/vue-actionsheet#readme",
+  "homepage": "https://github.com/mint-ui/mint-actionsheet#readme",
   "bugs": {
-    "url": "https://github.com/ElemeFE/vue-actionsheet/vue-actionsheet/issues"
+    "url": "https://github.com/mint-ui/mint-actionsheet/issues"
   },
   "author": "yi.shyang@ele.me",
-  "license": "mit",
+  "license": "MIT",
   "dependencies": {
     "vue-popup": "^0.1.4"
   },

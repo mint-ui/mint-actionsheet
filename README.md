@@ -1,19 +1,21 @@
-# vue-actionsheet
-An action sheet component for vue.js
+# Overview
+mint-actionsheet is an action sheet component for vue.js
 
 # Installation
-First, install `vue-actionsheet` from npm:
+First, install `mint-actionsheet` from npm:
 ```bash
-$ npm install vue-actionsheet
+$ npm install mint-actionsheet
 ```
 
 Import it:
 ```Javascript
+require ('mint-actionsheet/lib/index.css');
+
 // ES6 mudule
-import Actionsheet from 'vue-actionsheet';
+import Actionsheet from 'mint-actionsheet';
 
 // CommonJS
-const Actionsheet = require('vue-actionsheet').default;
+const Actionsheet = require('mint-actionsheet').default;
 ```
 
 Register component:

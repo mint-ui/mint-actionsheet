@@ -11,7 +11,8 @@ cooking.set({
   
   devServer: false,
   format: 'umd',
-  moduleName: 'VueActionsheet',
+  moduleName: 'MintActionsheet',
+  extractCSS: 'index.css',
   
   extends: ['vue', 'lint', 'saladcss']
 });

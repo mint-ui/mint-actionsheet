@@ -1,16 +1,16 @@
 <template>
-  <div v-if="rendered" v-show="visible" class="kebab-actionsheet" transition="actionsheet-float">
-    <ul class="kebab-actionsheet-list" :style="{ 'margin-bottom': cancelText ? '5px' : '0' }">
-      <li v-for="item in actions" class="kebab-actionsheet-listitem" @click="itemClick(item)">{{ item.name }}</li>
+  <div v-if="rendered" v-show="visible" class="mint-actionsheet" transition="actionsheet-float">
+    <ul class="mint-actionsheet-list" :style="{ 'margin-bottom': cancelText ? '5px' : '0' }">
+      <li v-for="item in actions" class="mint-actionsheet-listitem" @click="itemClick(item)">{{ item.name }}</li>
     </ul>
-    <a class="kebab-actionsheet-button" @click="visible = false" v-if="cancelText">{{ cancelText }}</a>
+    <a class="mint-actionsheet-button" @click="visible = false" v-if="cancelText">{{ cancelText }}</a>
   </div>
 </template>
 
 <style>
   @reset-global mobile;
 
-  @component-namespace kebab {
+  @component-namespace mint {
     @component actionsheet {
       position: fixed;
       background: #e0e0e0;
@@ -54,7 +54,7 @@
   require('vue-popup/lib/popup.css');
 
   export default {
-    name: 'kb-actionsheet',
+    name: 'mt-actionsheet',
 
     mixins: [Popup],
 
