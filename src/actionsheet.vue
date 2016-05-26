@@ -8,8 +8,6 @@
 </template>
 
 <style>
-  @reset-global mobile;
-
   @component-namespace mint {
     @component actionsheet {
       position: fixed;
@@ -19,6 +17,10 @@
       bottom: 0;
       left: 50%;
       transform: translate(-50%, 0);
+
+      @descendent list {
+        list-style: none;
+      }
 
       @descendent listitem {
         border-bottom: solid 1px #e0e0e0;
