@@ -16,7 +16,7 @@
       text-align: center;
       bottom: 0;
       left: 50%;
-      transform: translate(-50%, 0);
+      transform: translate3d(-50%, 0, 0);
 
       @descendent list {
         list-style: none;
@@ -47,7 +47,7 @@
 
   .actionsheet-float-enter,
   .actionsheet-float-leave {
-    transform: translate(-50%, 100%);
+    transform: translate3d(-50%, 100%, 0);
   }
 </style>
 
