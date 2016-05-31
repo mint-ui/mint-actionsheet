@@ -1,6 +1,6 @@
 {
   "name": "mint-actionsheet",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An action sheet component for vue.js",
   "private": false,
   "main": "lib/index.js",
