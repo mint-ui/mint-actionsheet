@@ -19,6 +19,8 @@
       transform: translate3d(-50%, 0, 0);
 
       @descendent list {
+        margin: 0;
+        padding: 0;
         list-style: none;
       }
 
