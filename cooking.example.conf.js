@@ -7,13 +7,16 @@ cooking.set({
   dist: './example/dist',
   use: 'vue',
   publicPath: '/example/dist/',
-  template: false,
+  template: 'example/index.html',
 
-  devServer: false,
+  devServer: {
+    port: 8791,
+    hostname: require('my-local-ip')(),
+    publicPath: '/',
+    log: false
+  },
 
   extends: ['vue', 'lint', 'saladcss']
 });
-
-cooking.add('externals.vue', 'Vue');
 
 module.exports = cooking.resolve();

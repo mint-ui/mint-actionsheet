@@ -1,4 +1,5 @@
 import Actionsheet from '../src';
+import Vue from 'vue';
 new Vue({
   el: 'body',
   components: {
