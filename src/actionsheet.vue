@@ -1,5 +1,5 @@
 <template>
-  <div v-show="visible" class="mint-actionsheet">
+  <div v-show="visible" class="mint-actionsheet" transition="actionsheet-float">
     <ul class="mint-actionsheet-list" :style="{ 'margin-bottom': cancelText ? '5px' : '0' }">
       <li v-for="item in actions" class="mint-actionsheet-listitem" @click="itemClick(item)">{{ item.name }}</li>
     </ul>
@@ -16,16 +16,9 @@
       text-align: center;
       bottom: 0;
       left: 50%;
-      transition: .2s;
-      transform: translate3d(-50%, 100%, 0);
-
-      @when visible {
-        transform: translate3d(-50%, 0, 0);
-      }
+      transform: translate3d(-50%, 0, 0);
 
       @descendent list {
-        margin: 0;
-        padding: 0;
         list-style: none;
       }
 
@@ -48,13 +41,13 @@
     }
   }
 
-  @keyframes sheet-in {
-    0% {
-      transform: translate3d(-50%, 100%, 0);
-    }
-    100% {
-      transform: translate3d(-50%, 0, 0);
-    }
+  .actionsheet-float-transition {
+    transition: transform .3s ease-out .1s;
+  }
+
+  .actionsheet-float-enter,
+  .actionsheet-float-leave {
+    transform: translate3d(-50%, 100%, 0);
   }
 </style>
 
@@ -84,18 +77,6 @@
       actions: {
         type: Array,
         default: () => []
-      }
-    },
-
-    watch: {
-      visible(val) {
-        if (val) {
-          setTimeout(() => {
-            this.$el.classList.add('is-visible');
-          }, 250);
-        } else {
-          this.$el.classList.remove('is-visible');
-        }
       }
     },
 
