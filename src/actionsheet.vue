@@ -1,10 +1,12 @@
 <template>
-  <div v-show="visible" class="mint-actionsheet" transition="actionsheet-float">
-    <ul class="mint-actionsheet-list" :style="{ 'margin-bottom': cancelText ? '5px' : '0' }">
-      <li v-for="item in actions" class="mint-actionsheet-listitem" @click="itemClick(item)">{{ item.name }}</li>
-    </ul>
-    <a class="mint-actionsheet-button" @click="visible = false" v-if="cancelText">{{ cancelText }}</a>
-  </div>
+  <transition name="actionsheet-float">
+    <div v-show="currentValue" class="mint-actionsheet">
+      <ul class="mint-actionsheet-list" :style="{ 'margin-bottom': cancelText ? '5px' : '0' }">
+        <li v-for="item in actions" class="mint-actionsheet-listitem" @click="itemClick(item)">{{ item.name }}</li>
+      </ul>
+      <a class="mint-actionsheet-button" @click="currentValue = false" v-if="cancelText">{{ cancelText }}</a>
+    </div>
+  </transition>
 </template>
 
 <style>
@@ -18,9 +20,12 @@
       left: 50%;
       transform: translate3d(-50%, 0, 0);
       backface-visibility: hidden;
+      transition: transform .3s ease-out;
 
       @descendent list {
         list-style: none;
+        padding: 0;
+        margin: 0;
       }
 
       @descendent listitem {
@@ -36,25 +41,21 @@
         color: #333;
         background-color: #fff;
         &:active {
-           background-color: #f0f0f0;
+          background-color: #f0f0f0;
         }
       }
     }
   }
 
-  .actionsheet-float-transition {
-    transition: transform .3s ease-out .1s;
-  }
-
   .actionsheet-float-enter,
-  .actionsheet-float-leave {
+  .actionsheet-float-leave-active {
     transform: translate3d(-50%, 100%, 0);
   }
 </style>
 
 <script type="text/babel">
   import Popup from 'vue-popup';
-  require('vue-popup/lib/popup.css');
+  import 'vue-popup/lib/popup.css';
 
   export default {
     name: 'mt-actionsheet',
@@ -64,6 +65,14 @@
     props: {
       modal: {
         default: true
+      },
+
+      modalFade: {
+        default: false
+      },
+
+      lockScroll: {
+        default: false
       },
 
       closeOnClickModal: {
@@ -81,12 +90,36 @@
       }
     },
 
+    data() {
+      return {
+        currentValue: false
+      };
+    },
+
+    watch: {
+      currentValue(val) {
+        this.$emit('input', val);
+      },
+
+      value(val) {
+        this.currentValue = val;
+      }
+    },
+
     methods: {
       itemClick(item) {
         if (item.method && typeof item.method === 'function') {
           item.method();
         }
-        this.visible = false;
+        this.currentValue = false;
+      }
+    },
+
+    mounted() {
+      if (this.value) {
+        this.rendered = true;
+        this.currentValue = true;
+        this.open();
       }
     }
   };

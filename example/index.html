@@ -20,7 +20,9 @@
   <title>vue-actionsheet example</title>
 </head>
 <body>
-<button @click="sheetVisible = true">open an action sheet</button>
-<actionsheet :actions="actions" :visible.sync="sheetVisible"></actionsheet>
+<div id="wrapper">
+  <button @click="sheetVisible = true">open an action sheet</button>
+  <actionsheet :actions="actions" v-model="sheetVisible"></actionsheet>
+</div>
 </body>
 </html>

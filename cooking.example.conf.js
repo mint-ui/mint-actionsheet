@@ -5,7 +5,6 @@ cooking.set({
     build: './example/index.js'
   },
   dist: './example/dist',
-  use: 'vue',
   publicPath: '/example/dist/',
   template: 'example/index.html',
 
@@ -16,7 +15,7 @@ cooking.set({
     log: false
   },
 
-  extends: ['vue', 'lint', 'saladcss']
+  extends: ['vue2', 'lint', 'saladcss']
 });
 
 module.exports = cooking.resolve();
